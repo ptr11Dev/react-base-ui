@@ -5,7 +5,7 @@
   "files": [
     "dist/**/*"
   ],
-  "name": "@ptrdev11/react-base-ui",
+  "name": "@kpm-ui/react-base-ui",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
