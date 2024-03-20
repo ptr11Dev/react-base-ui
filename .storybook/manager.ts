@@ -2,8 +2,20 @@
 
 import { addons } from '@storybook/manager-api'
 import { create } from '@storybook/theming'
+import { API_PreparedIndexEntry, API_StatusObject } from '@storybook/types'
 
 addons.setConfig({
+  sidebar: {
+    filters: {
+      patterns: (
+        item: API_PreparedIndexEntry & {
+          status: Record<string, API_StatusObject | null>
+        },
+      ): boolean => {
+        return !(item.tags ?? []).includes('hideInSidebar')
+      },
+    },
+  },
   theme: create({
     base: 'dark',
     brandTitle: 'react-base-ui',
@@ -15,7 +27,7 @@ addons.setConfig({
 
     appBg: '#282c34',
     appContentBg: '#333740',
-    appPreviewBg: '#20232A',
+    appPreviewBg: '#fff',
     appBorderColor: '#20232A',
     appBorderRadius: 4,
 
