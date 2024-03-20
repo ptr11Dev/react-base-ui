@@ -8,10 +8,16 @@ const STYLE_CONSTS = {
 
 const COLORS = {
   primary: '#0085ff',
-  secondary: '#ff7e5f',
-  success: '#60b731',
-  warning: '#ffd300',
-  error: '#ea4646',
+  // secondary: '#341470',
+  secondary: '#0c6e7f',
+  success: '#07bc0c',
+  warning: '#ffba00',
+  error: '#fa383e',
+
+  focusStyle: `0px 0px 0px 2px #42445a`,
+
+  disabledBgc: '#ddd',
+  disabledTextColor: '#a1a1a1',
 }
 
 export const StyledButton = styled.button<
@@ -22,9 +28,15 @@ export const StyledButton = styled.button<
   border: 2px solid transparent;
   border-radius: 8px;
   transition: 1s;
-  background-size: 200% 100%;
 
-  /* This is example comment to check if it's moved to build */
+  &:focus {
+    -webkit-box-shadow: ${COLORS.focusStyle};
+    -moz-box-shadow: ${COLORS.focusStyle};
+    box-shadow: ${COLORS.focusStyle};
+    outline: none;
+  }
+
+  /* TODO - to remove This is example comment to check if it's moved to build */
 
   ${(props) => {
     const isOutlineVariant = props.variant?.includes('-outline')
@@ -46,12 +58,11 @@ export const StyledButton = styled.button<
         background-color: ${color};
 
         &:hover {
-          background-color: ${lighten(0.15, color)};
+          background-color: ${lighten(0.25, color)};
         }
       `
     }
   }}
-
   ${(props) => {
     switch (props.size) {
       case 'sm':
@@ -72,6 +83,19 @@ export const StyledButton = styled.button<
           min-width: ${STYLE_CONSTS.buttonWidth * 1.2}px;
           font-size: 1.2rem;
         `
+    }
+  }}
+  ${(props) => {
+    if (props.disabled) {
+      return css`
+        cursor: not-allowed;
+        background-color: ${COLORS.disabledBgc};
+        color: ${COLORS.disabledTextColor};
+
+        &:hover {
+          background-color: ${COLORS.disabledBgc};
+        }
+      `
     }
   }}
 `

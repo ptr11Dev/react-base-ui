@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react'
+
 export type ButtonProps = {
   /**
    * Button contents
@@ -25,4 +27,7 @@ export type ButtonProps = {
    * Optional click handler
    */
   onClick?: () => void
+  disabled?: boolean
+  type?: 'button' | 'submit' | 'reset'
+  customStyles?: CSSProperties
 }

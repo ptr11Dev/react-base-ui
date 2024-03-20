@@ -47,7 +47,8 @@ export const Warning: Story = {
   tags: ['hideInSidebar'],
 }
 
-export const Error: Story = {
+export const ErrorStory: Story = {
+  name: 'Error',
   args: {
     text: 'Error',
     variant: 'error',
@@ -79,6 +80,26 @@ export const Lg: Story = {
   tags: ['hideInSidebar'],
 }
 
+export const Customized: Story = {
+  args: {
+    text: 'Custom Button',
+    customStyles: {
+      backgroundColor: 'red',
+      minWidth: '500px',
+      fontSize: '90px',
+    },
+  },
+  tags: ['hideInSidebar'],
+}
+
+export const Disabled: Story = {
+  args: {
+    text: 'Disabled',
+    disabled: true,
+  },
+  tags: ['hideInSidebar'],
+}
+
 export const OnClickCall: Story = {
   args: {
     text: 'Button Primary',
@@ -100,7 +121,8 @@ export const Variants: Story = {
           display: 'flex',
           flexWrap: 'wrap',
           gap: '20px',
-          alignItems: 'flex-end',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}>
         <Story />
       </div>
@@ -124,6 +146,92 @@ export const Variants: Story = {
   },
 }
 
+export const VariantsFocused: Story = {
+  name: 'Variants:focus',
+  args: {
+    text: 'Variants:focus',
+  },
+  parameters: {
+    docs: { disable: true },
+  },
+  decorators: [
+    (Story) => {
+      return (
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '20px',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Story />
+        </div>
+      )
+    },
+  ],
+  render: () => {
+    const forceFocusStateStyles = {
+      boxShadow: '0px 0px 0px 2px #42445a',
+    }
+
+    return (
+      <>
+        <Button
+          text='Primary'
+          variant='primary'
+          customStyles={forceFocusStateStyles}
+        />
+        <Button
+          text='Secondary'
+          variant='secondary'
+          customStyles={forceFocusStateStyles}
+        />
+        <Button
+          text='Success'
+          variant='success'
+          customStyles={forceFocusStateStyles}
+        />
+        <Button
+          text='Warning'
+          variant='warning'
+          customStyles={forceFocusStateStyles}
+        />
+        <Button
+          text='Error'
+          variant='error'
+          customStyles={forceFocusStateStyles}
+        />
+        <Button
+          text='Primary-outline'
+          variant='primary-outline'
+          customStyles={forceFocusStateStyles}
+        />
+        <Button
+          text='Secondary-outline'
+          variant='secondary-outline'
+          customStyles={forceFocusStateStyles}
+        />
+        <Button
+          text='Success-outline'
+          variant='success-outline'
+          customStyles={forceFocusStateStyles}
+        />
+        <Button
+          text='Warning-outline'
+          variant='warning-outline'
+          customStyles={forceFocusStateStyles}
+        />
+        <Button
+          text='Error-outline'
+          variant='error-outline'
+          customStyles={forceFocusStateStyles}
+        />
+      </>
+    )
+  },
+}
+
 export const Sizes: Story = {
   args: {
     text: 'Sizes',
@@ -138,7 +246,8 @@ export const Sizes: Story = {
           display: 'flex',
           flexWrap: 'wrap',
           gap: '20px',
-          alignItems: 'flex-end',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}>
         <Story />
       </div>
