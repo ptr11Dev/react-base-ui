@@ -6,7 +6,7 @@
     "dist/**/*"
   ],
   "name": "@kpm-ui/react-base-ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "build:types": "tsc",
