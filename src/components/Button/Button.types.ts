@@ -1,16 +1,26 @@
 export type ButtonProps = {
   /**
+   * Button contents
+   */
+  text: string
+  /**
    * Is this the principal call to action on the page?
    */
-  mode?: 'primary' | 'secondary'
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'primary-outline'
+    | 'secondary-outline'
+    | 'success-outline'
+    | 'warning-outline'
+    | 'error-outline'
   /**
    * How large should the button be?
    */
-  size?: 'small' | 'medium' | 'large' | 'crazy-large'
-  /**
-   * Button contents
-   */
-  label: string
+  size?: 'sm' | 'md' | 'lg'
   /**
    * Optional click handler
    */

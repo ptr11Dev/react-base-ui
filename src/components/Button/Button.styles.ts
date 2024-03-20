@@ -1,57 +1,76 @@
 import styled, { css } from 'styled-components'
 import { ButtonProps } from './Button.types'
+import { lighten } from 'polished'
 
-export const StyledButton = styled.button<Pick<ButtonProps, 'mode' | 'size'>>`
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  border: 0;
-  border-radius: 3em;
+const STYLE_CONSTS = {
+  buttonWidth: 120,
+}
+
+const COLORS = {
+  primary: '#0085ff',
+  secondary: '#ff7e5f',
+  success: '#60b731',
+  warning: '#ffd300',
+  error: '#ea4646',
+}
+
+export const StyledButton = styled.button<
+  Pick<ButtonProps, 'variant' | 'size'>
+>`
   cursor: pointer;
-  display: inline-block;
-  line-height: 1;
-  color: ${(props) => (props.mode ? 'white' : '#333')};
-  box-shadow: ${(props) =>
-    props.mode ? 'none' : 'rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset'};
+  color: white;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: 1s;
+  background-size: 200% 100%;
+
+  /* This is example comment to check if it's moved to build */
+
   ${(props) => {
-    switch (props.mode) {
-      case 'primary':
-        return css`
-          background-color: white;
-          border: 3px solid black;
-        `
-      case 'secondary':
-        return css`
-          background-color: yellow;
-          border: 5px dashed #324234;
-        `
-      default:
-        return css`
-          background-color: blue;
-          border: 2px dotted #333;
-        `
+    const isOutlineVariant = props.variant?.includes('-outline')
+    const color =
+      COLORS[props.variant?.replace('-outline', '') as keyof typeof COLORS]
+
+    if (isOutlineVariant) {
+      return css`
+        background-color: #fff;
+        border: 2px solid ${color};
+        color: ${color};
+
+        &:hover {
+          background-color: ${lighten(0.25, color)};
+        }
+      `
+    } else {
+      return css`
+        background-color: ${color};
+
+        &:hover {
+          background-color: ${lighten(0.15, color)};
+        }
+      `
     }
   }}
+
   ${(props) => {
     switch (props.size) {
-      case 'small':
+      case 'sm':
         return css`
-          font-size: 14px;
-          padding: 10px 16px;
+          padding: 6px 12px;
+          min-width: ${STYLE_CONSTS.buttonWidth * 0.8}px;
+          font-size: 0.8rem;
         `
-      case 'large':
+      case 'md':
         return css`
-          font-size: 16px;
-          padding: 12px 24px;
+          padding: 8px 16px;
+          min-width: ${STYLE_CONSTS.buttonWidth}px;
+          font-size: 1rem;
         `
-      case 'crazy-large':
+      case 'lg':
         return css`
-          font-size: 32px;
-          padding: 24px 48px;
-        `
-      default:
-        return css`
-          font-size: 14px;
-          padding: 11px 20px;
+          padding: 12px 20px;
+          min-width: ${STYLE_CONSTS.buttonWidth * 1.2}px;
+          font-size: 1.2rem;
         `
     }
   }}
