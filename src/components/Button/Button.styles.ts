@@ -20,9 +20,7 @@ const COLORS = {
   disabledTextColor: '#a1a1a1',
 }
 
-export const StyledButton = styled.button<
-  Pick<ButtonProps, 'variant' | 'size'>
->`
+export const StyledButton = styled.button<Pick<ButtonProps, 'variant' | 'size'>>`
   cursor: pointer;
   color: white;
   border: 2px solid transparent;
@@ -40,8 +38,7 @@ export const StyledButton = styled.button<
 
   ${(props) => {
     const isOutlineVariant = props.variant?.includes('-outline')
-    const color =
-      COLORS[props.variant?.replace('-outline', '') as keyof typeof COLORS]
+    const color = COLORS[props.variant?.replace('-outline', '') as keyof typeof COLORS]
 
     if (isOutlineVariant) {
       return css`

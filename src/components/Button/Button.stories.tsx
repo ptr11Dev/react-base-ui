@@ -177,56 +177,16 @@ export const VariantsFocused: Story = {
 
     return (
       <>
-        <Button
-          text='Primary'
-          variant='primary'
-          customStyles={forceFocusStateStyles}
-        />
-        <Button
-          text='Secondary'
-          variant='secondary'
-          customStyles={forceFocusStateStyles}
-        />
-        <Button
-          text='Success'
-          variant='success'
-          customStyles={forceFocusStateStyles}
-        />
-        <Button
-          text='Warning'
-          variant='warning'
-          customStyles={forceFocusStateStyles}
-        />
-        <Button
-          text='Error'
-          variant='error'
-          customStyles={forceFocusStateStyles}
-        />
-        <Button
-          text='Primary-outline'
-          variant='primary-outline'
-          customStyles={forceFocusStateStyles}
-        />
-        <Button
-          text='Secondary-outline'
-          variant='secondary-outline'
-          customStyles={forceFocusStateStyles}
-        />
-        <Button
-          text='Success-outline'
-          variant='success-outline'
-          customStyles={forceFocusStateStyles}
-        />
-        <Button
-          text='Warning-outline'
-          variant='warning-outline'
-          customStyles={forceFocusStateStyles}
-        />
-        <Button
-          text='Error-outline'
-          variant='error-outline'
-          customStyles={forceFocusStateStyles}
-        />
+        <Button text='Primary' variant='primary' customStyles={forceFocusStateStyles} />
+        <Button text='Secondary' variant='secondary' customStyles={forceFocusStateStyles} />
+        <Button text='Success' variant='success' customStyles={forceFocusStateStyles} />
+        <Button text='Warning' variant='warning' customStyles={forceFocusStateStyles} />
+        <Button text='Error' variant='error' customStyles={forceFocusStateStyles} />
+        <Button text='Primary-outline' variant='primary-outline' customStyles={forceFocusStateStyles} />
+        <Button text='Secondary-outline' variant='secondary-outline' customStyles={forceFocusStateStyles} />
+        <Button text='Success-outline' variant='success-outline' customStyles={forceFocusStateStyles} />
+        <Button text='Warning-outline' variant='warning-outline' customStyles={forceFocusStateStyles} />
+        <Button text='Error-outline' variant='error-outline' customStyles={forceFocusStateStyles} />
       </>
     )
   },
