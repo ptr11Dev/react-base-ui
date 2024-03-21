@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 
 export type ButtonProps = {
   /**
@@ -29,5 +29,8 @@ export type ButtonProps = {
   onClick?: () => void
   disabled?: boolean
   type?: 'button' | 'submit' | 'reset'
+  isLoading?: boolean
   customStyles?: CSSProperties
+  LeftIcon?: ReactNode
+  RightIcon?: ReactNode
 }

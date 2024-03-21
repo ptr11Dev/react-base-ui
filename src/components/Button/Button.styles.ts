@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { ButtonProps } from './Button.types'
 import { lighten } from 'polished'
 
-const STYLES_CONST = {
+export const STYLES_CONST = {
   buttonWidth: 120,
 
   primary: '#0085ff',
@@ -16,11 +16,14 @@ const STYLES_CONST = {
 
   disabledBgc: '#ddd',
   disabledTextColor: '#a1a1a1',
+
+  smMultiplier: 0.8,
+  lgMultiplier: 1.2,
 }
 
 export const StyledButton = styled.button<Pick<ButtonProps, 'variant' | 'size'>>`
   cursor: pointer;
-  color: white;
+  color: #fff;
   border: 2px solid transparent;
   border-radius: 8px;
   transition: 1s;
@@ -63,20 +66,23 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'variant' | 'size'>>
       case 'sm':
         return css`
           padding: 6px 12px;
-          min-width: ${STYLES_CONST.buttonWidth * 0.8}px;
-          font-size: 0.8rem;
+          min-width: ${STYLES_CONST.buttonWidth * STYLES_CONST.smMultiplier}px;
+          font-size: ${STYLES_CONST.smMultiplier}rem;
+          min-height: 40px;
         `
       case 'md':
         return css`
           padding: 8px 16px;
           min-width: ${STYLES_CONST.buttonWidth}px;
           font-size: 1rem;
+          min-height: 48px;
         `
       case 'lg':
         return css`
           padding: 12px 20px;
-          min-width: ${STYLES_CONST.buttonWidth * 1.2}px;
-          font-size: 1.2rem;
+          min-width: ${STYLES_CONST.buttonWidth * STYLES_CONST.lgMultiplier}px;
+          font-size: ${STYLES_CONST.lgMultiplier}rem;
+          min-height: 60px;
         `
     }
   }}
