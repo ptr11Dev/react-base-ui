@@ -1,4 +1,5 @@
-import { StyledButton } from './Button.styles'
+import { Spinner } from '../Spinner/Spinner'
+import { ButtonContent, StyledButton } from './Button.styles'
 import { ButtonProps } from './Button.types'
 
 export const Button = ({
@@ -21,7 +22,10 @@ export const Button = ({
       type={type}
       style={customStyles}
       {...props}>
-      {text}
+      <ButtonContent>
+        <p>{text}</p>
+        <Spinner $color='#fff' $offColor='rgba(255,255,255,0.1)' />
+      </ButtonContent>
     </StyledButton>
   )
 }

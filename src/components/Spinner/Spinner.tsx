@@ -8,15 +8,15 @@ import { SpinnerProps } from './Spinner.types'
 
 const WavingDotsSpinner = ({
   size = 'md',
-  color,
-  backgroundColor,
+  $color,
+  $backgroundColor,
 }: {
   size?: SpinnerProps['size']
-  color?: SpinnerProps['color']
-  backgroundColor?: SpinnerProps['backgroundColor']
+  $color?: SpinnerProps['$color']
+  $backgroundColor?: SpinnerProps['$backgroundColor']
 }) => {
   return (
-    <WavingDotsSpinnerContainer size={size} color={color} backgroundColor={backgroundColor}>
+    <WavingDotsSpinnerContainer size={size} $color={$color} $backgroundColor={$backgroundColor}>
       <div></div>
       <div></div>
       <div></div>
@@ -26,15 +26,15 @@ const WavingDotsSpinner = ({
 
 const FadingDotsSpinner = ({
   size = 'md',
-  color,
-  backgroundColor,
+  $color,
+  $backgroundColor,
 }: {
   size?: SpinnerProps['size']
-  color?: SpinnerProps['color']
-  backgroundColor?: SpinnerProps['backgroundColor']
+  $color?: SpinnerProps['$color']
+  $backgroundColor?: SpinnerProps['$backgroundColor']
 }) => {
   return (
-    <FadingDotsSpinnerContainer size={size} color={color} backgroundColor={backgroundColor}>
+    <FadingDotsSpinnerContainer size={size} $color={$color} $backgroundColor={$backgroundColor}>
       <div></div>
       <div></div>
       <div></div>
@@ -42,18 +42,30 @@ const FadingDotsSpinner = ({
   )
 }
 
-export const Spinner = ({ type = 'basic', size = 'md', color, offColor, backgroundColor }: SpinnerProps) => {
+export const Spinner = ({ type = 'basic', size = 'md', $color, $offColor, $backgroundColor }: SpinnerProps) => {
   switch (type) {
     case 'fadingDots':
-      return <FadingDotsSpinner size={size} color={color} backgroundColor={backgroundColor} />
+      return <FadingDotsSpinner size={size} $color={$color} $backgroundColor={$backgroundColor} />
     case 'dual':
       return (
-        <DualRingSpinnerContainer size={size} color={color} offColor={offColor} backgroundColor={backgroundColor} />
+        <DualRingSpinnerContainer
+          size={size}
+          $color={$color}
+          $offColor={$offColor}
+          $backgroundColor={$backgroundColor}
+        />
       )
     case 'dots':
-      return <WavingDotsSpinner size={size} color={color} backgroundColor={backgroundColor} />
+      return <WavingDotsSpinner size={size} $color={$color} $backgroundColor={$backgroundColor} />
     case 'basic':
     default:
-      return <PrimarySpinnerContainer size={size} color={color} offColor={offColor} backgroundColor={backgroundColor} />
+      return (
+        <PrimarySpinnerContainer
+          size={size}
+          $color={$color}
+          $offColor={$offColor}
+          $backgroundColor={$backgroundColor}
+        />
+      )
   }
 }

@@ -2,11 +2,9 @@ import styled, { css } from 'styled-components'
 import { ButtonProps } from './Button.types'
 import { lighten } from 'polished'
 
-const STYLE_CONSTS = {
+const STYLES_CONST = {
   buttonWidth: 120,
-}
 
-const COLORS = {
   primary: '#0085ff',
   // secondary: '#341470',
   secondary: '#0c6e7f',
@@ -28,9 +26,9 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'variant' | 'size'>>
   transition: 1s;
 
   &:focus {
-    -webkit-box-shadow: ${COLORS.focusStyle};
-    -moz-box-shadow: ${COLORS.focusStyle};
-    box-shadow: ${COLORS.focusStyle};
+    -webkit-box-shadow: ${STYLES_CONST.focusStyle};
+    -moz-box-shadow: ${STYLES_CONST.focusStyle};
+    box-shadow: ${STYLES_CONST.focusStyle};
     outline: none;
   }
 
@@ -38,7 +36,7 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'variant' | 'size'>>
 
   ${(props) => {
     const isOutlineVariant = props.variant?.includes('-outline')
-    const color = COLORS[props.variant?.replace('-outline', '') as keyof typeof COLORS]
+    const color = STYLES_CONST[props.variant?.replace('-outline', '') as keyof typeof STYLES_CONST] as string
 
     if (isOutlineVariant) {
       return css`
@@ -65,19 +63,19 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'variant' | 'size'>>
       case 'sm':
         return css`
           padding: 6px 12px;
-          min-width: ${STYLE_CONSTS.buttonWidth * 0.8}px;
+          min-width: ${STYLES_CONST.buttonWidth * 0.8}px;
           font-size: 0.8rem;
         `
       case 'md':
         return css`
           padding: 8px 16px;
-          min-width: ${STYLE_CONSTS.buttonWidth}px;
+          min-width: ${STYLES_CONST.buttonWidth}px;
           font-size: 1rem;
         `
       case 'lg':
         return css`
           padding: 12px 20px;
-          min-width: ${STYLE_CONSTS.buttonWidth * 1.2}px;
+          min-width: ${STYLES_CONST.buttonWidth * 1.2}px;
           font-size: 1.2rem;
         `
     }
@@ -86,13 +84,20 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'variant' | 'size'>>
     if (props.disabled) {
       return css`
         cursor: not-allowed;
-        background-color: ${COLORS.disabledBgc};
-        color: ${COLORS.disabledTextColor};
+        background-color: ${STYLES_CONST.disabledBgc};
+        color: ${STYLES_CONST.disabledTextColor};
 
         &:hover {
-          background-color: ${COLORS.disabledBgc};
+          background-color: ${STYLES_CONST.disabledBgc};
         }
       `
     }
   }}
+`
+
+export const ButtonContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 `

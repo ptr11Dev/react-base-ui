@@ -34,14 +34,14 @@ const primaryAnimation = keyframes`
 `
 
 export const PrimarySpinnerContainer = styled.div<
-  Pick<SpinnerProps, 'size' | 'color' | 'offColor' | 'backgroundColor'>
+  Pick<SpinnerProps, 'size' | '$color' | '$offColor' | '$backgroundColor'>
 >`
   border: 4px solid;
-  border-color: ${(props) => props.offColor || COLORS.basicOffColor};
+  border-color: ${(props) => props.$offColor || COLORS.basicOffColor};
   border-radius: 50%;
-  border-top-color: ${(props) => props.color || COLORS.basicColor};
+  border-top-color: ${(props) => props.$color || COLORS.basicColor};
   animation: ${primaryAnimation} 1s ease-in-out infinite;
-  background-color: ${(props) => props.backgroundColor || 'transparent'};
+  background-color: ${(props) => props.$backgroundColor || 'transparent'};
   ${(props) => getSizeStyle(props.size)};
 `
 
@@ -56,10 +56,10 @@ const dualAnimation = keyframes`
 `
 
 export const DualRingSpinnerContainer = styled.div<
-  Pick<SpinnerProps, 'size' | 'color' | 'offColor' | 'backgroundColor'>
+  Pick<SpinnerProps, 'size' | '$color' | '$offColor' | '$backgroundColor'>
 >`
   display: inline-block;
-  background-color: ${(props) => props.backgroundColor || 'transparent'};
+  background-color: ${(props) => props.$backgroundColor || 'transparent'};
   border-radius: 50%;
 
   &:after {
@@ -67,9 +67,9 @@ export const DualRingSpinnerContainer = styled.div<
     display: block;
     margin: 1px;
     border-radius: 50%;
-    border: 5px solid ${(props) => props.offColor || 'transparent'};
-    border-top-color: ${(props) => props.color || COLORS.basicColor};
-    border-bottom-color: ${(props) => props.color || COLORS.basicColor};
+    border: 5px solid ${(props) => props.$offColor || 'transparent'};
+    border-top-color: ${(props) => props.$color || COLORS.basicColor};
+    border-bottom-color: ${(props) => props.$color || COLORS.basicColor};
     animation: ${dualAnimation} 1.2s linear infinite;
     ${(props) => getSizeStyle(props.size)}
   }
@@ -85,17 +85,17 @@ const fadingDotsAnimation = keyframes`
   }
 `
 
-export const FadingDotsSpinnerContainer = styled.div<Pick<SpinnerProps, 'size' | 'color' | 'backgroundColor'>>`
+export const FadingDotsSpinnerContainer = styled.div<Pick<SpinnerProps, 'size' | '$color' | '$backgroundColor'>>`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 3px;
-  background-color: ${(props) => props.backgroundColor || 'transparent'};
+  background-color: ${(props) => props.$backgroundColor || 'transparent'};
 
   div {
     ${(props) => getDotSizeStyle(props.size)}
     border-radius: 50%;
-    background: ${(props) => props.color || COLORS.basicColor};
+    background: ${(props) => props.$color || COLORS.basicColor};
     animation: ${fadingDotsAnimation} 1.4s infinite ease-in-out both;
   }
 
@@ -122,16 +122,16 @@ const wavingDotsAnimation = keyframes`
   }
 `
 
-export const WavingDotsSpinnerContainer = styled.div<Pick<SpinnerProps, 'size' | 'color' | 'backgroundColor'>>`
+export const WavingDotsSpinnerContainer = styled.div<Pick<SpinnerProps, 'size' | '$color' | '$backgroundColor'>>`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
-  background-color: ${(props) => props.backgroundColor || 'transparent'};
+  background-color: ${(props) => props.$backgroundColor || 'transparent'};
 
   & > div {
     ${(props) => getDotSizeStyle(props.size)}
-    background: ${(props) => props.color || COLORS.basicColor};
+    background: ${(props) => props.$color || COLORS.basicColor};
     border-radius: 50%;
     animation: ${wavingDotsAnimation} 1s linear infinite;
 

@@ -8,13 +8,13 @@ const meta = {
     layout: 'centered',
   },
   argTypes: {
-    backgroundColor: {
+    $backgroundColor: {
       type: 'string',
     },
-    color: {
+    $color: {
       type: 'string',
     },
-    offColor: {
+    $offColor: {
       type: 'string',
     },
   },
@@ -55,9 +55,9 @@ export const Customized: Story = {
   args: {
     type: 'dual',
     size: 'lg',
-    color: 'red',
-    offColor: 'blue',
-    backgroundColor: 'yellow',
+    $color: 'red',
+    $offColor: 'blue',
+    $backgroundColor: 'yellow',
   },
   tags: ['hideInSidebar'],
 }
@@ -131,12 +131,12 @@ export const Color: Story = {
   render: () => {
     return (
       <>
-        <Spinner type='basic' color='black' />
-        <Spinner type='basic' color='black' offColor='rgba(0,255,0,0.8)' />
-        <Spinner type='dual' color='black' />
-        <Spinner type='dual' color='black' offColor='rgba(0,255,0,0.8)' />
-        <Spinner type='fadingDots' color='black' />
-        <Spinner type='dots' color='black' />
+        <Spinner type='basic' $color='black' />
+        <Spinner type='basic' $color='black' $offColor='rgba(0,255,0,0.8)' />
+        <Spinner type='dual' $color='black' />
+        <Spinner type='dual' $color='black' $offColor='rgba(0,255,0,0.8)' />
+        <Spinner type='fadingDots' $color='black' />
+        <Spinner type='dots' $color='black' />
       </>
     )
   },
@@ -163,10 +163,10 @@ export const BackgroundColor: Story = {
   render: () => {
     return (
       <>
-        <Spinner type='basic' backgroundColor='black' color='white' />
-        <Spinner type='dual' backgroundColor='black' color='white' />
-        <Spinner type='fadingDots' backgroundColor='black' color='white' />
-        <Spinner type='dots' backgroundColor='black' color='white' />
+        <Spinner type='basic' $backgroundColor='black' $color='white' size='lg' />
+        <Spinner type='dual' $backgroundColor='black' $color='white' size='lg' />
+        <Spinner type='fadingDots' $backgroundColor='black' $color='white' size='lg' />
+        <Spinner type='dots' $backgroundColor='black' $color='white' size='lg' />
       </>
     )
   },
