@@ -1,18 +1,35 @@
 import styled, { css } from 'styled-components'
 import { ButtonProps } from './Button.types'
-import { lighten } from 'polished'
 
 export const STYLES_CONST = {
   buttonWidth: 120,
 
   primary: '#0085ff',
-  // secondary: '#341470',
   secondary: '#0c6e7f',
   success: '#07bc0c',
   warning: '#ffba00',
   error: '#fa383e',
 
-  focusStyle: `0px 0px 0px 2px #42445a`,
+  basicShadow: `0 2px 4px 0 rgba(0, 0, 0, 0.2)`,
+
+  activeStyles: {
+    transform: 'translateY(1px)',
+    boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.2)',
+    '-webkit-box-shadow': '0 2px 4px 0 rgba(0, 0, 0, 0.2)',
+    '-moz-box-shadow': '0 2px 4px 0 rgba(0, 0, 0, 0.2)',
+  },
+  focusStyles: {
+    outline: 'none',
+    boxShadow: '0 0 0 2px rgba(0, 123, 255, 0.5)',
+    '-webkit-box-shadow': '0 0 0 2px rgba(0, 123, 255, 0.5)',
+    '-moz-box-shadow': '0 0 0 2px rgba(0, 123, 255, 0.5)',
+  },
+  hoverStyles: {
+    transform: 'translateY(-2px)',
+    boxShadow: '0 4px 6px 0 rgba(0, 0, 0, 0.2)',
+    '-webkit-box-shadow': '0 4px 6px 0 rgba(0, 0, 0, 0.2)',
+    '-moz-box-shadow': '0 4px 6px 0 rgba(0, 0, 0, 0.2)',
+  },
 
   disabledBgc: '#ddd',
   disabledTextColor: '#a1a1a1',
@@ -24,15 +41,23 @@ export const STYLES_CONST = {
 export const StyledButton = styled.button<Pick<ButtonProps, 'variant' | 'size'>>`
   cursor: pointer;
   color: #fff;
-  border: 2px solid transparent;
+  border: none;
   border-radius: 8px;
-  transition: 1s;
+  transition: transform 0.2s ease-in-out;
+  -webkit-box-shadow: ${STYLES_CONST.basicShadow};
+  -moz-box-shadow: ${STYLES_CONST.basicShadow};
+  box-shadow: ${STYLES_CONST.basicShadow};
 
   &:focus {
-    -webkit-box-shadow: ${STYLES_CONST.focusStyle};
-    -moz-box-shadow: ${STYLES_CONST.focusStyle};
-    box-shadow: ${STYLES_CONST.focusStyle};
-    outline: none;
+    ${STYLES_CONST.focusStyles}
+  }
+
+  &:hover {
+    ${STYLES_CONST.hoverStyles}
+  }
+
+  &:active {
+    ${STYLES_CONST.activeStyles}
   }
 
   /* TODO - to remove This is example comment to check if it's moved to build */
@@ -46,18 +71,10 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'variant' | 'size'>>
         background-color: #fff;
         border: 2px solid ${color};
         color: ${color};
-
-        &:hover {
-          background-color: ${lighten(0.25, color)};
-        }
       `
     } else {
       return css`
         background-color: ${color};
-
-        &:hover {
-          background-color: ${lighten(0.25, color)};
-        }
       `
     }
   }}
