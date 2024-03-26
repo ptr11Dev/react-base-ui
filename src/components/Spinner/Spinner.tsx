@@ -42,7 +42,7 @@ const FadingDotsSpinner = ({
   )
 }
 
-export const Spinner = ({ type = 'basic', size = 'md', $color, $offColor, $backgroundColor }: SpinnerProps) => {
+const getSpinnerType = ({ type, size, $color, $offColor, $backgroundColor }: SpinnerProps) => {
   switch (type) {
     case 'fadingDots':
       return <FadingDotsSpinner size={size} $color={$color} $backgroundColor={$backgroundColor} />
@@ -68,4 +68,7 @@ export const Spinner = ({ type = 'basic', size = 'md', $color, $offColor, $backg
         />
       )
   }
+}
+export const Spinner = ({ type = 'basic', size = 'md', $color, $offColor, $backgroundColor }: SpinnerProps) => {
+  return <div className='spinner'>{getSpinnerType({ type, size, $color, $offColor, $backgroundColor })}</div>
 }

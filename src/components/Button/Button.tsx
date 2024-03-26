@@ -1,17 +1,18 @@
 import { CSSProperties } from 'react'
 import { Spinner } from '../Spinner/Spinner'
-import { ButtonContent, STYLES_CONST, StyledButton } from './Button.styles'
+import { ButtonContent, StyledButton } from './Button.styles'
 import { ButtonProps } from './Button.types'
+import { STYLES_CONST } from './const'
 
 export const Button = ({
+  customStyles,
   disabled = false,
+  isLoading = false,
   onClick,
   size = 'md',
   text,
-  variant = 'primary',
   type = 'button',
-  isLoading = false,
-  customStyles,
+  variant = 'primary',
   LeftIcon,
   RightIcon,
   ...props

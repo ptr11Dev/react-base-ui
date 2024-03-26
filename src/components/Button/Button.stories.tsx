@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { Button } from './Button'
 import CheckIcon from '../Icon'
-import { STYLES_CONST } from './Button.styles'
+import { STYLES_CONST } from './const'
 
 const meta = {
   title: 'Components/Button',

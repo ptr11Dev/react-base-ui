@@ -13,10 +13,11 @@
     "build:vite": "vite build",
     "build": "npm run build:types && npm run build:vite",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "storybook": "storybook dev -p 4000 --no-open",
+    "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=chpt_61a7ed578a64916",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test-ct": "playwright test -c playwright-ct.config.ts"
   },
   "peerDependencies": {
     "react": "^18.2.0",
@@ -25,6 +26,8 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.2.25",
+    "@playwright/experimental-ct-react": "^1.42.1",
+    "@playwright/test": "^1.42.1",
     "@storybook/addon-essentials": "^8.0.4",
     "@storybook/addon-interactions": "^8.0.4",
     "@storybook/addon-links": "^8.0.4",
@@ -33,6 +36,7 @@
     "@storybook/react": "^8.0.4",
     "@storybook/react-vite": "^8.0.4",
     "@storybook/test": "^8.0.4",
+    "@types/node": "^20.11.30",
     "@types/react": "^18.2.67",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
